@@ -1,15 +1,18 @@
 const { Router } = require('express');
 const filter = require('../models/talker.control');
+const validateNull = require('../services/validations/products.service');
 
 const storeMangerRouter = Router();
 
 storeMangerRouter.get('/products', async (_req, res) => {
-  const products = await filter.findAllProducts();
+  const validate = await validateNull();
   
-  if (!products) {
-    res.status(404).json({ message: 'Product not found' });
+  if (validate.type === 'FIELD_REQUIRED') {
+    res.status(404).json({ message: validate.message });
+    return;
   }
   
+  const products = await filter.findAllProducts();
   res.status(200).json(products);
 });
 
