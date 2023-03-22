@@ -5,9 +5,9 @@ const connection = require('../../../src/models/connection')
 const filters = require('../../../src/models/talker.model')
 
 describe('Tests of model from products', function () {
-  it('return all the product when using the method get without params', async function () {
+  it('verifys if the product null return the correct message', async function () {
     // Arrange
-    sinon.stub(connection, 'execute').resolves([product])
+    sinon.stub(connection, 'execute').resolves([!product])
 
     // Act
     const finalResult = await filters.findAllProducts();

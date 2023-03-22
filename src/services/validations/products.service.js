@@ -1,4 +1,4 @@
-const filter = require('../../models/talker.control');
+const filter = require('../../models/talker.model');
 
 const validateNull = async () => {
   const products = await filter.findAllProducts();
@@ -7,7 +7,20 @@ const validateNull = async () => {
     return { type: 'FIELD_REQUIRED', message: 'Product not found' };
   }
   
-  return { type: null, message: '' };
+  return { type: null, message: '', products };
 };
 
-module.exports = validateNull;
+const validateNullId = async (productId) => {
+  const [products] = await filter.findProductsByID(productId);
+  
+  if (!products || products.length === 0) {
+    return { type: 'FIELD_REQUIRED', message: 'Product not found' };
+  }
+  
+  return { type: null, message: '', products };
+};
+
+module.exports = {
+  validateNull,
+  validateNullId,
+};
