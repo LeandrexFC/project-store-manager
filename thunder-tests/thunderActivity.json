@@ -1,77 +1,21 @@
 [
   {
-    "_id": "2b30701d-4cf1-4ab3-b4d6-772952eeba75",
+    "_id": "e5a91462-5fa4-4e13-876a-e880c2ff1b0f",
     "colId": "history",
     "containerId": "",
-    "name": "localhost:3000/products/",
-    "url": "localhost:3000/products/",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-03-21T20:30:08.154Z",
-    "modified": "2023-03-21T20:30:08.154Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "a976fc43-dc4d-49ec-b07c-b29dd9cc0480",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3001/products/",
+    "name": "localhost:3001/products",
     "url": "localhost:3001/products/",
     "method": "GET",
     "sortNum": 0,
-    "created": "2023-03-21T20:30:12.455Z",
-    "modified": "2023-03-22T22:35:08.985Z",
+    "created": "2023-03-22T22:59:11.639Z",
+    "modified": "2023-03-23T18:39:51.303Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"testtt\"\n}",
+      "raw": "{\n  \"name\": \"a\"\n}",
       "form": []
     },
-    "tests": []
-  },
-  {
-    "_id": "b8b05161-a785-4233-b2f4-a6cf0e629d1c",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3306/products/",
-    "url": "localhost:3306/products/",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-03-21T20:45:37.164Z",
-    "modified": "2023-03-21T20:45:37.164Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "bfce8138-4017-4a0d-9a33-736698b11bd6",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3001/products/3",
-    "url": "localhost:3001/products/3",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-03-21T21:02:34.541Z",
-    "modified": "2023-03-21T21:02:34.541Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "1ba4c2d7-3dd4-4095-a914-7037159026aa",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3001/products/4",
-    "url": "localhost:3001/products/4",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-03-21T21:15:39.512Z",
-    "modified": "2023-03-21T21:15:39.512Z",
-    "headers": [],
-    "params": [],
     "tests": []
   }
 ]

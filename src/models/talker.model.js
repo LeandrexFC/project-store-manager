@@ -9,7 +9,7 @@ const findAllProducts = async () => {
 
 const findProductsByID = async (productID) => {
   const [result] = await connection.execute(
-    'SELECT * FROM products WHERE id = ? ORDER BY id ASC',
+    'SELECT * FROM StoreManager.products WHERE id = ? ORDER BY id ASC',
     [productID],
   );
    return result;
@@ -17,7 +17,7 @@ const findProductsByID = async (productID) => {
 
 const insertProduct = async (productName) => {
   const [result] = await connection.execute(
-    'INSERT INTO products (name) VALUES (?)', [productName],
+    'INSERT INTO StoreManager.products (name) VALUES (?)', [productName],
   );
 
   const newProduct = {

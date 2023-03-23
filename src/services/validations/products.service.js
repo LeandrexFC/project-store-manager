@@ -20,7 +20,19 @@ const validateNullId = async (productId) => {
   return { type: null, message: '', products };
 };
 
+const validateField = async (name) => {
+  if (!name) {
+    return { type: 'FIELD_REQUIRED', message: '"name" is required' };
+  }
+  if (name.length < 5) {
+    return { type: 'FIELD_LENGTH', message: '"name" length must be at least 5 characters long' };
+  }
+  
+    return { type: null, message: '' };
+};
+
 module.exports = {
   validateNull,
   validateNullId,
+  validateField,
 };
