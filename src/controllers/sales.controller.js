@@ -15,9 +15,9 @@ const insertSales = async (req, res) => {
     return res.status(404).json({ message });
   }
 
-  const finalResults = await validates.createSale(sales);
+  const sale = await validates.createSale(sales);
 
-  return res.status(201).json(finalResults);
+  return res.status(201).json(sale);
 };
 
 module.exports = {

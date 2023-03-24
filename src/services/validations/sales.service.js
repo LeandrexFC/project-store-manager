@@ -21,25 +21,22 @@ const validateSaleField = async (sales) => {
   return { type: null, message: '' };
 };
 
-const itemsSold = [];
+// const itemsSold = [];
 
 const createSale = async (sales) => {
-  const { id } = await salesModel.insertSales();
-   await salesModel.insertSalesProducts(sales, id);
+  const idSale = await salesModel.insertSales();
+
+  const allProducts = sales.map(({ productId, quantity }) => 
+    salesModel.insertSalesProducts({ productId, quantity, id: idSale }));
   
-  sales
-    .forEach((sale) => {
-      const { productId, quantity } = sale;
-      
-        itemsSold.push({ productId, quantity });
-    });
-    return { id, itemsSold };
+  await Promise.all(allProducts);
+
+ return {
+  id: idSale,
+  itemsSold: sales,
+};
   };
-  
-  // productId: sale.productId,
-  // quantity: sale.quantity,
-  // saleId: id,
-  // id: salesInserted + 1,
+
   module.exports = {
   validateSaleField,
   createSale,
