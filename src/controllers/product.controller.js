@@ -1,5 +1,5 @@
 const validates = require('../services/validations/products.service');
-const productModel = require('../models/talker.model');
+const productModel = require('../models/product.model');
 
 const productController = async (_req, res) => {
   const { products, type, message } = await validates.validateNull();
@@ -41,8 +41,12 @@ const productInserted = async (req, res) => {
   }
 };
 
+// sale = precisa do id, date,
+// sales products = precisa do product_id, sale_id e quantity 
+
 module.exports = {
   productController,
   productControllerId,
   productInserted,
+
 };

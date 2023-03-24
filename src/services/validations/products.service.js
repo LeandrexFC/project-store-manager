@@ -1,7 +1,8 @@
-const filter = require('../../models/talker.model');
+// const connection = require('../../models/connection');
+const productModel = require('../../models/product.model');
 
 const validateNull = async () => {
-  const products = await filter.findAllProducts();
+  const products = await productModel.findAllProducts();
   
   if (!products || products.length === 0) {
     return { type: 'FIELD_REQUIRED', message: 'Product not found' };
@@ -11,7 +12,7 @@ const validateNull = async () => {
 };
 
 const validateNullId = async (productId) => {
-  const [products] = await filter.findProductsByID(productId);
+  const [products] = await productModel.findProductsByID(productId);
   
   if (!products || products.length === 0) {
     return { type: 'FIELD_REQUIRED', message: 'Product not found' };
@@ -26,9 +27,8 @@ const validateField = async (name) => {
   }
   if (name.length < 5) {
     return { type: 'FIELD_LENGTH', message: '"name" length must be at least 5 characters long' };
-  }
-  
-    return { type: null, message: '' };
+  } 
+     return { type: null, message: '' };
 };
 
 module.exports = {
