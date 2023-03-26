@@ -1,6 +1,9 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-await-in-loop */
 const connection = require('../../models/connection');
 const salesModel = require('../../models/sales.model');
 
+// eslint-disable-next-line complexity, sonarjs/cognitive-complexity
 const validateSaleField = async (sales) => {
   for (const sale of sales) {
     const { productId, quantity } = sale;
