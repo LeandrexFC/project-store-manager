@@ -1,16 +1,19 @@
 const isQuantityValid = (req, res, next) => {
   const sales = req.body;
+  const errors = [];
 
-  sales.forEach((sale) => {
-    if (sale.quantity == null) {
-      return res.status(400).json({ message: '"quantity" is required' });
+  for (let i = 0; i < sales.length; i += 1) {
+    if (sales[i].quantity == null) {
+      errors.push({ status: 400, message: '"quantity" is required' });
+    } else if (sales[i].quantity <= 0) {
+      errors.push({ status: 422, message: '"quantity" must be greater than or equal to 1' });
     }
-    if (sale.quantity <= 0) {
-      return res.status(422).json({ message: '"quantity" must be greater than or equal to 1' });
-    }
-  });
-  
-  return next();
+  }
+
+  if (errors.length > 0) {
+    return res.status(errors[0].status).json(errors[0]);
+  } 
+    return next();
 };
 
 module.exports = isQuantityValid;

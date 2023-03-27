@@ -11,14 +11,16 @@ const validateNull = async () => {
   return { type: null, message: '', products };
 };
 
-const validateNullId = async (productId) => {
+const validateNullId = async (productId, name) => {
   const [products] = await productModel.findProductsByID(productId);
   
   if (!products || products.length === 0) {
     return { type: 'FIELD_REQUIRED', message: 'Product not found' };
   }
+
+  const newProduct = await productModel.attProduct(productId, name);
   
-  return { type: null, message: '', products };
+  return { type: null, message: '', products, newProduct };
 };
 
 const validateField = async (name) => {
@@ -28,7 +30,10 @@ const validateField = async (name) => {
   if (name.length < 5) {
     return { type: 'FIELD_LENGTH', message: '"name" length must be at least 5 characters long' };
   } 
-     return { type: null, message: '' };
+
+  const response = await productModel.insertProduct(name);
+
+     return { type: null, message: '', response };
 };
 
 module.exports = {

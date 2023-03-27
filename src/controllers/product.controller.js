@@ -1,5 +1,4 @@
 const validates = require('../services/validations/products.service');
-const productModel = require('../models/product.model');
 
 const productController = async (_req, res) => {
   const { products, type, message } = await validates.validateNull();
@@ -28,25 +27,41 @@ const productControllerId = async (req, res) => {
 const productInserted = async (req, res) => {
   const { name } = req.body;
 
-  const { type, message } = await validates.validateField(name);
+  const { type, message, response } = await validates.validateField(name);
 
   if (type === 'FIELD_REQUIRED') {
     res.status(400).json({ message });
   } else if (type === 'FIELD_LENGTH') {
     res.status(422).json({ message });
   } else {
-    const response = await productModel.insertProduct(name);
-
     return res.status(201).json(response);
   }
 };
 
-// sale = precisa do id, date,
-// sales products = precisa do product_id, sale_id e quantity 
+ const attProduct = async (req, res) => {
+   const { id } = req.params;
+   const { name } = req.body;
+
+   const { type: types, message: messages } = await validates.validateField(name);
+
+   console.log(messages);
+
+   if (types === 'FIELD_REQUIRED') {
+    return res.status(400).json({ messages });
+  } if (types === 'FIELD_LENGTH') {
+    return res.status(422).json({ messages }); 
+  } 
+    const { type, message, newProduct } = await validates.validateNullId(id, name);
+    if (type === 'FIELD_REQUIRED') {
+    return res.status(404).json({ message });
+    }
+
+     return res.status(200).json(newProduct);
+    };
 
 module.exports = {
   productController,
   productControllerId,
   productInserted,
-
+   attProduct,
 };

@@ -22,4 +22,6 @@ storeMangerRouter.get('/sales', salesController.returnSales);
 
 storeMangerRouter.get('/sales/:id', salesController.returnSalesId);
 
+storeMangerRouter.put('/products/:id', productsController.attProduct);
+
 module.exports = storeMangerRouter;
