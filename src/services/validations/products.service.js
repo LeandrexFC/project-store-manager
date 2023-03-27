@@ -11,16 +11,16 @@ const validateNull = async () => {
   return { type: null, message: '', products };
 };
 
-const validateNullId = async (productId, name) => {
+const validateNullId = async (productId) => {
   const [products] = await productModel.findProductsByID(productId);
   
   if (!products || products.length === 0) {
     return { type: 'FIELD_REQUIRED', message: 'Product not found' };
   }
 
-  const newProduct = await productModel.attProduct(productId, name);
+  // const newProduct = await productModel.attProduct(productId, name);
   
-  return { type: null, message: '', products, newProduct };
+  return { type: null, message: '', products };
 };
 
 const validateField = async (name) => {

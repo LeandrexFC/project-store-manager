@@ -1,7 +1,6 @@
 const connection = require('./connection');
 
 const insertSalesProducts = async ({ productId, quantity, id }) => {
-  console.log(productId);
     await connection.execute(
       'INSERT INTO sales_products (product_id, quantity, sale_id) VALUES (?, ?, ?)',
       [productId, quantity, id],
