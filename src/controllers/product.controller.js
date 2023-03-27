@@ -38,7 +38,7 @@ const productInserted = async (req, res) => {
   }
 };
 
- const attProduct = async (req, res) => {
+const attProduct = async (req, res) => {
    const { id } = req.params;
    const { name } = req.body;
 
@@ -55,9 +55,24 @@ const productInserted = async (req, res) => {
      return res.status(200).json(newProduct);
     };
 
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+  
+  const { type, message } = await validates.validateNullId(id);
+
+  if (type === 'FIELD_REQUIRED') {
+     res.status(404).json({ message });
+  }
+
+  await validates.deleteProductById(id);
+  
+  return res.status(204).end();
+};
+
 module.exports = {
   productController,
   productControllerId,
   productInserted,
-   attProduct,
+  attProduct,
+  deleteProduct,
 };

@@ -52,9 +52,14 @@ const attNameField = async (name, productId) => {
   return { type: null, message: '', newProduct };
 };
 
+const deleteProductById = async (id) => {
+  await productModel.deleteProduct(id);
+};
+
 module.exports = {
   validateNull,
   validateNullId,
   validateField,
   attNameField,
+  deleteProductById,
 };

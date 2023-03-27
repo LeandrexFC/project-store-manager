@@ -40,9 +40,16 @@ const attProduct = async (productId, name) => {
   return newProduct;
 };
 
+const deleteProduct = async (productId) => {
+  await connection.execute(
+    'DELETE FROM products WHERE id = ?', [productId],
+  );
+};
+
 module.exports = {
   findAllProducts,
   findProductsByID,
   insertProduct,
   attProduct,
+  deleteProduct,
 };
