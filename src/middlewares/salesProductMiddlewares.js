@@ -5,7 +5,7 @@ const isProductValid = async (req, res, next) => {
 
   try {
     const promises = sales.map(async (sale) => {
-      if (sale.productId == null) {
+      if (!sale.productId) {
         return res.status(400).json({ message: '"productId" is required' });
       }
 
