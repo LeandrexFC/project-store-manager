@@ -38,30 +38,26 @@ const productInserted = async (req, res) => {
   }
 };
 
-//  const attProduct = async (req, res) => {
-//    const { id } = req.params;
-//    const { name } = req.body;
+ const attProduct = async (req, res) => {
+   const { id } = req.params;
+   const { name } = req.body;
 
-//    const { type: types, message: messages } = await validates.validateField(name);
+   const { type, message, newProduct } = await validates.attNameField(name, id);
 
-//    console.log(messages);
+   if (type === 'FIELD_REQUIRED') {
+    return res.status(400).json({ message });
+  } if (type === 'FIELD_LENGTH') {
+    return res.status(422).json({ message }); 
+  } if (type === 'FIELD_NOT_FOUND') {
+    return res.status(404).json({ message });
+    }
 
-//    if (types === 'FIELD_REQUIRED') {
-//     return res.status(400).json({ messages });
-//   } if (types === 'FIELD_LENGTH') {
-//     return res.status(422).json({ messages }); 
-//   } 
-//     const { type, message, newProduct } = await validates.validateNullId(id, name);
-//     if (type === 'FIELD_REQUIRED') {
-//     return res.status(404).json({ message });
-//     }
-
-//      return res.status(200).json(newProduct);
-//     };
+     return res.status(200).json(newProduct);
+    };
 
 module.exports = {
   productController,
   productControllerId,
   productInserted,
-  //  attProduct,
+   attProduct,
 };

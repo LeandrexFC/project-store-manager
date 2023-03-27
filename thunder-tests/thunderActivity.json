@@ -4,16 +4,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3001/products",
-    "url": "localhost:3001/products/2",
-    "method": "GET",
+    "url": "localhost:3001/products/1",
+    "method": "POST",
     "sortNum": 0,
     "created": "2023-03-22T22:59:11.639Z",
-    "modified": "2023-03-27T19:27:23.167Z",
+    "modified": "2023-03-27T20:10:30.901Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 4,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 1\n  }\n]",
+      "raw": "{\n  \"name\": \"\"\n}",
       "form": []
     },
     "tests": []
