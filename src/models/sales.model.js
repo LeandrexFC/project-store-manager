@@ -27,7 +27,7 @@ const findAllSales = async () => {
 
 const findSalesById = async (saleId) => {
   const [result] = await connection.execute(`
-  SELECT DATE_FORMAT(sales.date, '%Y-%m-%dT%H:%i:%s.000Z') AS date,
+  SELECT sales.date AS date,
     sales_products.product_id AS productId, sales_products.quantity
   FROM sales_products
   JOIN sales ON sales.id = sales_products.sale_id
