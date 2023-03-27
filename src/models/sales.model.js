@@ -37,9 +37,14 @@ const findSalesById = async (saleId) => {
    return result;
 }; 
 
+const attreq = () => {
+  console.log('test');
+};
+
 module.exports = {
   insertSalesProducts,
   insertSales,
   findAllSales,
   findSalesById,
+  attreq,
 };
