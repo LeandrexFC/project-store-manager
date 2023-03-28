@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const product = require('./Mocks/product.mock')
 const connection = require('../../../src/models/connection')
-const filters = require('../../../src/models/talker.model')
+const filters = require('../../../src/models/product.model')
 
 describe('Tests of model from products', function () {
   it('return all the product when using the method get without params', async function () {

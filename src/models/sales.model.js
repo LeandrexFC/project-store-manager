@@ -5,6 +5,8 @@ const insertSalesProducts = async ({ productId, quantity, id }) => {
       'INSERT INTO sales_products (product_id, quantity, sale_id) VALUES (?, ?, ?)',
       [productId, quantity, id],
     );
+    
+    return { id };
 };
 
 const insertSales = async () => {
@@ -21,7 +23,7 @@ const findAllSales = async () => {
     sales_products.quantity
     FROM sales_products JOIN sales ON sales.id = sales_products.sale_id
     ORDER BY sales.id ASC, sales_products.product_id ASC`);
-   return result;
+  return result;
 };
 
 const findSalesById = async (saleId) => {
