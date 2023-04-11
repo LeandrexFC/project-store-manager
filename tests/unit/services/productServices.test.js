@@ -1,6 +1,5 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-const connection = require('../../../src/models/connection')
 const filter = require('../../../src/services/validations/products.service')
 
 describe('Tests of Services from products', function () {
