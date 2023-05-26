@@ -1,13 +1,15 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h1>Store Manager</h1>
+The Store Manager project involves developing an API using the MSC (Model-Service-Controller) architecture. The API serves as a dropshipping sales management system, providing users with functionalities to create, view, delete, and update products and sales. MySQL is utilized as the database for efficient data management, and the API is designed to follow RESTful principles.<br>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+<h2>Project Overview</h2>
+The main objectives of the Store Manager project are as follows:<br>
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+- Develop an API using the MSC architecture.<br>
+- Create a dropshipping sales management system.<br>
+- Implement functionalities for managing products and sales.<br>
+- Utilize MySQL as the database for data storage.<br>
+- Design the API following RESTful principles.<br>
+
+<h3>Contributors</h3>
+I created the src folder and all its contents.<br>
+Trybe - Provided the remaining files and resources for the project.<br>
